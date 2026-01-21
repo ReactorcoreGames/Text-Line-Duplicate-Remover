@@ -1,5 +1,10 @@
 # Text Line Duplicate Remover
 
+- Mirror 1: https://reactorcoregames.github.io/Text-Line-Duplicate-Remover/
+- Mirror 2: https://reactorcore.itch.io/text-line-duplicate-remover
+
+<img width="1637" height="853" alt="text dupli screenshot (2)" src="https://github.com/user-attachments/assets/e803e0f1-fb57-4232-bd38-de3f23dd5aa3" />
+
 ## About
 This tool helps you remove duplicate lines from your text, with additional text processing options.
 
