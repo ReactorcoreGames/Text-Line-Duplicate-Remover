@@ -1,13 +1,8 @@
 # Text Line Duplicate Remover
 
-Use the web app directly here: https://reactorcoregames.github.io/Text-Line-Duplicate-Remover/
-
-![!cover txt_duplicate_remover](https://github.com/user-attachments/assets/faacc7a2-0fe5-491e-a06f-9a62bb0d83d2)
-
 ## About
 This tool helps you remove duplicate lines from your text, with additional text processing options.
 
-<img width="864" height="841" alt="!info textline duplicate remover 1" src="https://github.com/user-attachments/assets/5c53267e-e04d-4f24-9cba-7a71ea2faa83" />
 
 ## How to use
 1. Paste your text into the "Input Text" box on the left.

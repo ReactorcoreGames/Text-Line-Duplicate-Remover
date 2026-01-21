@@ -6,12 +6,14 @@
     <title>Text Line Duplicate Remover</title>
     <style>
         :root {
-            --primary-dark: #2c3e50;
-            --primary: #34495e;
-            --secondary: #7f8c8d;
-            --accent: #1abc9c;
-            --text: #ecf0f1;
-            --highlight: #16a085;
+            --primary-dark: #1a252f;
+            --primary: #1e3a4a;
+            --secondary: #2d4a5c;
+            --accent: #00ffcc;
+            --text: #ffffff;
+            --highlight: #00d9b3;
+            --gradient-1: #4a1a5e;
+            --gradient-2: #1a4a7a;
         }
 
         body {
@@ -19,10 +21,21 @@
             padding: 20px;
             min-height: 80vh;
             font-family: Arial, sans-serif;
-            background-color: var(--primary-dark);
+            background: linear-gradient(180deg, var(--gradient-1), var(--gradient-2), var(--gradient-1));
+            background-size: 100% 200%;
+            animation: gradientFlow 9s linear infinite;
             color: var(--text);
             display: flex;
             flex-direction: column;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 200%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
         }
 
         .container {
@@ -65,14 +78,23 @@
         }
 
         .info-button {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, #00b894 100%);
             color: var(--primary-dark);
-            border: none;
+            border: 1px solid rgba(0, 255, 204, 0.3);
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 1em;
             margin-bottom: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .info-button:hover {
+            background: linear-gradient(135deg, #00fff0 0%, var(--accent) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 204, 0.5);
         }
 
         .main-action button {
@@ -96,9 +118,12 @@
         }
 
         .text-section {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #163441 100%);
             padding: 1rem;
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 255, 204, 0.2);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .text-label {
@@ -111,20 +136,32 @@
         textarea {
             width: calc(100% - 16px);
             height: 220px;
-            background: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary) 0%, #1f3642 100%);
             color: var(--text);
-            border: 1px solid var(--accent);
-            border-radius: 4px;
+            border: 2px solid rgba(0, 255, 204, 0.3);
+            border-radius: 8px;
             padding: 8px;
             resize: vertical;
             margin-bottom: 1rem;
+            font-size: 1em;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 16px rgba(0, 255, 204, 0.4),
+                        inset 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .controls {
             margin-bottom: 1rem;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, rgba(30, 58, 74, 0.8) 0%, rgba(22, 52, 65, 0.8) 100%);
             padding: 1rem;
-            border-radius: 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 204, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .control-group {
@@ -137,18 +174,30 @@
         }
 
         button {
-            background: var(--highlight);
+            background: linear-gradient(135deg, var(--highlight) 0%, #008a70 100%);
             color: white;
-            border: none;
+            border: 1px solid rgba(0, 255, 204, 0.3);
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: all 0.3s;
             font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 217, 179, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         button:hover {
-            opacity: 0.9;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 204, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(0, 255, 204, 0.5);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 217, 179, 0.3);
         }
 
         .stats {
@@ -161,17 +210,24 @@
         footer {
             text-align: center;
             padding: 1rem;
-            margin-top: 2rem;
-            background-color: var(--primary);
-            border-radius: 8px;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, rgba(30, 58, 74, 0.9) 0%, rgba(22, 52, 65, 0.9) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(0, 255, 204, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         footer a {
-            color: var(--highlight);
+            color: var(--accent);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
         footer a:hover {
+            color: var(--highlight);
             text-decoration: underline;
         }
 
@@ -222,13 +278,15 @@
         }
 
         .modal-content {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #163441 100%);
             margin: 15% auto;
             padding: 20px;
-            border: 1px solid var(--accent);
-            border-radius: 8px;
+            border: 2px solid rgba(0, 255, 204, 0.3);
+            border-radius: 12px;
             width: 80%;
             max-width: 600px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .close {
@@ -326,7 +384,7 @@
     </div>
 
     <footer>
-        <a href="http://www.reactorcoregames.com" target="_blank">author: www.reactorcoregames.com</a>
+        Made by <a href="https://linktr.ee/reactorcore" target="_blank">Reactorcore</a>
     </footer>
 
     <!-- Modal -->
