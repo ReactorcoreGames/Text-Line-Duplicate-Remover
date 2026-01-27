@@ -24,6 +24,9 @@ The "Mobile Version" toggle allows you to switch to a more compact layout on sma
 
 
 ## Author
-Reactorcore & Claude
+
+Reactorcore & Claude ✨
+
 https://linktr.ee/reactorcore
+
 Check out my other cool stuff!
